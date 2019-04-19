@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -10,6 +11,33 @@
     <title>DeadlineKeeper</title>
 </head>
 <body>
+<div class ="enter window">
+    <div class="enter information">
 
+    </div>
+    <button type="submit" id="enotherEnter">Зареєструватися</button>
+    <div class="enter login">
+        <form class="login identification">
+            User name:
+            <input type="text" class="userName"><br>
+            Password:
+            <input type="text" class="userPassword"><br>
+            <button type="submit" id="loginButton">Enter</button>
+        </form>
+    </div>
+    <div class="enter registration">
+        <form class="registration identification">
+            User name:
+            <input type="text" class="userName"><br>
+            E-mail:
+            <input type="text" class="userEmail"><br>
+            Password:
+            <input type="text" class="userPassword"><br>
+            Enter password again:
+            <input type="text" class="userPasswordToCheck"><br>
+            <button type="submit" id="registrationButton">Registration</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 import 'bootstrap';
 import './scss/main.scss';
 
+<<<<<<< HEAD
     $(document).ready(function(){
         // Activate tooltip
         $('[data-toggle="tooltip"]').tooltip();
@@ -24,3 +25,19 @@ import './scss/main.scss';
             }
         });
     });
+=======
+console.log('Hello!');
+console.log(`The time is ${new Date()}`);
+
+$(document).ready(function () {
+    $('#toRegistration').on('click', function () {
+        $('#registration').removeAttr("hidden");
+        $('#login').attr("hidden", "true");
+    });
+
+    $('#toLogin').on('click', function () {
+        $('#login').removeAttr("hidden");
+        $('#registration').attr("hidden", "true");
+    });
+});
+>>>>>>> e1b2698d607fcb929f999cf86a50f7da93b81fe4

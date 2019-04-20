@@ -1,4 +1,49 @@
+<<<<<<< HEAD
 .hidden
 {
   display: none;
 }
+=======
+.window{
+  position: absolute;
+  height: 99%;
+  padding: 1%;
+  overflow: hidden;
+  background: rgb(81, 13, 75);
+
+}
+
+.enterRow{
+  position: absolute;
+  height: 99%;
+}
+
+.information {
+  position: relative;
+  padding: 5%;
+  text-align: left;
+  color: white;
+}
+
+.process{
+  position:  relative;
+  padding: 1%;
+  text-align: right;
+}
+
+.enter form{
+  padding: 5px;
+  text-align: left;
+  background: white;
+}
+
+.process *{
+  margin: 2px;
+}
+
+#header {
+  font-size: xx-large;
+  font-weight: bold;
+  alignment: left;
+}
+>>>>>>> e1b2698d607fcb929f999cf86a50f7da93b81fe4

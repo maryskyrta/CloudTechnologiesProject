@@ -1,3 +1,4 @@
+
 .hidden
 {
     display: none;
@@ -6,6 +7,41 @@
     DEMO STYLE
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+.window {
+  position: absolute;
+  height: 99%;
+  padding: 1%;
+  overflow: hidden;
+  background: #510d4b; }
+
+.enterRow {
+  position: absolute;
+  height: 99%; }
+
+.information {
+  position: relative;
+  padding: 5%;
+  text-align: left;
+  color: white; }
+
+.process {
+  position: relative;
+  padding: 1%;
+  text-align: right; }
+
+.enter form {
+  padding: 5px;
+  text-align: left;
+  background: white; }
+
+.process * {
+  margin: 2px; }
+
+#header {
+  font-size: xx-large;
+  font-weight: bold;
+  alignment: left; }
 
 
 body {

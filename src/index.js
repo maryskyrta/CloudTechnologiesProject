@@ -44,12 +44,12 @@ $(document).ready(function(){
     });
 
     $('#toMainFromLogin').on('click', function () {
-        $('.window').attr("hidden", "true");
+        $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");
     });
 
     $('#toMainFromRegistration').on('click', function () {
-        $('.window').attr("hidden", "true");
+        $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");
     });
 });

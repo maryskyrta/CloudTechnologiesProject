@@ -124,7 +124,7 @@
                     <a href="#homeSubmenu" >Deadlines</a>
                 </li>
                 <li>
-                    <a href="#">Profile</a>
+                    <a href="#" id="toProfileFromMain">Profile</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" >About</a>
@@ -294,6 +294,120 @@
         </div>
 
     </div>
+</div>
+<div class="container-fluid window" id="user_info" hidden>
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/user-453533-fdadfd.png">
+            </div>
+            <div class="col-md-6">
+                <strong>Information</strong><br>
+                <div class="table-responsive">
+                    <table class="table table-condensed table-responsive table-user-information">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="fa fa-user  text-primary"></span>
+                                    Name
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                Name
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="fa fa-cloud text-primary"></span>
+                                    Lastname
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                LastName
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="fa fa-bookmark text-primary"></span>
+                                    Username
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                login
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="fa fa-envelope text-primary" id="email_of"></span>
+                                    Email
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                noreply@email.com
+                            </td>
+                            <td >
+                                <button  data-toggle="modal" type="button" class="btn btn-light btn-rounded btn-sm my-0" data-target="#edit_email"><i class="fa fa-pencil-square"></i></button>
+                                <div class="modal fade" id="edit_email" tabindex="-1" role="dialog" aria-labelledby="mailLabel" aria-hidden="true">
+                                    <div class="modal-dialog " role="document">
+                                        <div class="modal-content">
+                                            <div class=" modal-body">
+                                                <form>
+                                                    <div class="modal-header">
+                                                        <h5 id="mailLabel">Edit your mail</h5>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="new_email" class="col-form-label">New Email:</label>
+                                                        <input type="text" class="form-control" id="new_email" >
+                                                    </div>
+                                                    <div class="modal-footer">
+
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">OK</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="fa fa-calendar text-primary"></span>
+                                    created
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                20 jan 2019
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="fa fa-bell-o text-primary"></span>
+                                    Number of reminds
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                2 times a day
+                            </td>
+                            <td >
+                                <button type="button"  id="edit_reminds" class="btn btn-light btn-rounded btn-sm my-0"><i class="fa fa-pencil-square"></i></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">

@@ -42,7 +42,10 @@ $(document).ready(function(){
         $('#login').removeAttr("hidden");
         $('#registration').attr("hidden", "true");
     });
-
+    $('#toProfileFromMain').on('click', function () {
+        $('#user_info').removeAttr("hidden");
+        $('.main').attr("hidden", "true");
+    });
     $('#toMainFromLogin').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");

@@ -1,22 +1,8 @@
 .enterWindow {
   position: absolute;
-  height: 99%;
   padding: 1%;
-  overflow: hidden;
+  min-height: 100%;
   background: #510d4b; }
-
-.enterRow {
-  position: absolute;
-  height: 99%; }
-
-#login, #registration {
-  margin: 8%;
-  padding: 1%; }
-
-.enterInformation {
-  margin: 20% 5% 5% 5%;
-  text-align: left;
-  color: white; }
 
 .process {
   position: relative;
@@ -30,12 +16,45 @@
 .process * {
   margin: 2px; }
 
+#login, #registration {
+  margin: 8%;
+  padding: 1%; }
+
+.enterInformation {
+  margin: 5% 2% 2% 2%;
+  text-align: left;
+  color: white; }
+
 #header {
-  font-size: 4em;
+  margin: 2%;
+  font-size: 3em;
   font-weight: bold;
   alignment: left;
-  margin: 5%;
   color: white; }
+
+@media (min-width: 992px) {
+  .enterWindow {
+    position: absolute;
+    height: 99%;
+    padding: 1%;
+    overflow: hidden;
+    background: #510d4b; }
+  .enterRow {
+    position: absolute;
+    height: 99%; }
+  .information {
+    padding-top: 5%; }
+  .enterInformation {
+    margin: 16% 5% 5% 5%;
+    text-align: left;
+    color: white;
+    font-size: large; }
+  #header {
+    margin: 5%;
+    font-size: 4em;
+    font-weight: bold;
+    alignment: left;
+    color: white; } }
 
 body {
   font-family: 'Poppins', sans-serif;

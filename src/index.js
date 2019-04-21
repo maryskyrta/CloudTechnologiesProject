@@ -1,6 +1,8 @@
 import 'bootstrap';
 import './scss/main.scss';
 import $ from 'jquery';
+
+
 window.jQuery = $;
 window.$ = $;
 
@@ -43,14 +45,21 @@ $(document).ready(function(){
         $('#registration').attr("hidden", "true");
     });
     $('#toProfileFromMain').on('click', function () {
+        $('.panel').attr("hidden", "true");
         $('#user_info').removeAttr("hidden");
-        $('.main').attr("hidden", "true");
+
+
     });
     $('#toMainFromLogin').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");
-    });
+        $('#deadline_table').removeAttr("hidden");
 
+    });
+ $('#toDeadlineTable').on('click',function(){
+     $('.panel').attr("hidden", "true");
+     $('#deadline_table').removeAttr("hidden");
+});
     $('#toMainFromRegistration').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");

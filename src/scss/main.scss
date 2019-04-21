@@ -13,16 +13,20 @@
   height: 99%;
 }
 
-.information {
-  position: relative;
-  padding: 5%;
+#login, #registration{
+  margin: 8%;
+  padding: 1%;
+}
+
+
+.enterInformation{
+  margin: 20% 5% 5% 5%;
   text-align: left;
   color: white;
 }
 
 .process{
   position:  relative;
-  padding: 1%;
   text-align: right;
 }
 
@@ -37,9 +41,11 @@
 }
 
 #header {
-  font-size: xx-large;
+  font-size: 4em;
   font-weight: bold;
   alignment: left;
+  margin: 5%;
+  color: white;
 }
 
 

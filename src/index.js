@@ -1,12 +1,14 @@
-import 'bootstrap';
+import  'bootstrap';
 import './scss/main.scss';
 import $ from 'jquery';
-var nodemailer = require('nodemailer');
+
 window.jQuery = $;
 window.$ = $;
 
 console.log('Hello!');
 console.log(`The time is ${new Date()}`);
+
+let nodemailer = require('nodemailer');
 
 $(document).ready(function(){
     // Email validation

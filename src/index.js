@@ -1,7 +1,7 @@
 import 'bootstrap';
 import './scss/main.scss';
 import $ from 'jquery';
-
+var nodemailer = require('nodemailer');
 window.jQuery = $;
 window.$ = $;
 
@@ -147,10 +147,14 @@ $(document).ready(function(){
         $('#deadline_table').removeAttr("hidden");
 
     });
+
     $('#toDeadlineTable').on('click',function(){
         $('.panel').attr("hidden", "true");
         $('#deadline_table').removeAttr("hidden");
     });
+
+
+
     $('#toMainFromRegistration').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");

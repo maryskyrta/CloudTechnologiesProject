@@ -1,6 +1,8 @@
 import 'bootstrap';
 import './scss/main.scss';
 import $ from 'jquery';
+var AWS = require('aws-sdk');
+var express = require('express');
 
 
 window.jQuery = $;

@@ -1,28 +1,15 @@
-
+//enter page
 .enterWindow{
   position: absolute;
-  height: 99%;
   padding: 1%;
-  overflow: hidden;
+  min-height: 100%;
   background: rgb(81, 13, 75);
 
 }
 
-.enterRow{
-  position: absolute;
-  height: 99%;
-}
-
-.information {
-  position: relative;
-  padding: 5%;
-  text-align: left;
-  color: white;
-}
-
+//diw with registration and login form
 .process{
   position:  relative;
-  padding: 1%;
   text-align: right;
 }
 
@@ -36,12 +23,65 @@
   margin: 2px;
 }
 
-#header {
-  font-size: xx-large;
-  font-weight: bold;
-  alignment: left;
+
+#login, #registration{
+  margin: 8%;
+  padding: 1%;
 }
 
+//block with span "header" and div "enter information"
+
+.enterInformation{
+  margin: 5% 2% 2% 2%;
+  text-align: left;
+  color: white;
+}
+
+#header {
+  margin: 2%;
+  font-size: 3em;
+  font-weight: bold;
+  alignment: left;
+  color: white;
+}
+
+@media (min-width: 992px) {
+
+  .enterWindow{
+    position: absolute;
+    height: 99%;
+    padding: 1%;
+    overflow: hidden;
+    background: rgb(81, 13, 75);
+
+  }
+
+  .enterRow{
+    position: absolute;
+    height: 99%;
+  }
+
+  .information{
+    padding-top: 5%;
+  }
+
+
+  .enterInformation{
+    margin: 16% 5% 5% 5%;
+    text-align: left;
+    color: white;
+    font-size: large;
+  }
+
+  #header {
+    margin: 5%;
+    font-size: 4em;
+    font-weight: bold;
+    alignment: left;
+    color: white;
+  }
+}
+//end enter page
 
 
 body {

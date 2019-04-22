@@ -5,9 +5,7 @@
     <title>DeadlineKeeper</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <script src="./js/main.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -15,29 +13,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <!--Daryna-->
 <div class ="enter window enterWindow container-fluid "  hidden>
     <div class="enterRow row align-items-center ">
-        <div class="col-lg-8 enter information ">
-            <span id="header">DeadlineKeeper</span><br><br>
-    Lorem ipsum dolor sit amet, possim expetenda conceptam ea eum,
-            aperiri dissentiet ne vis. Eu mel ipsum graeco splendide.
-            Meis numquam gubergren vim ea, zril tantas id mea, summo virtute
-            qui cu. Eos ad quas utinam, duo vidisse dolorem contentiones at.
+        <div class="col-lg-7 enter information align-self-start">
+            <span id="header" >DeadlineKeeper</span>
+            <div class="enterInformation">
+                Lorem ipsum dolor sit amet, possim expetenda conceptam ea eum,
+                aperiri dissentiet ne vis. Eu mel ipsum graeco splendide.
+                Meis numquam gubergren vim ea, zril tantas id mea, summo virtute
+                qui cu. Eos ad quas utinam, duo vidisse dolorem contentiones at.
 
-    Meis possit legimus mei te, ex iudico laudem ullamcorper sed.
-            Agam prompta ei vis, cum purto expetendis ne, iracundia
-            sadipscing id eos. Eos libris disputationi in, cu mei quis
-            munere facilisi. Est eros mucius ei, ius inermis hendrerit
-            ad. Dicat eruditi sadipscing mea ne, quot legere aliquam eam in.
+                Meis possit legimus mei te, ex iudico laudem ullamcorper sed.
+                Agam prompta ei vis, cum purto expetendis ne, iracundia
+                sadipscing id eos. Eos libris disputationi in, cu mei quis
+                munere facilisi. Est eros mucius ei, ius inermis hendrerit
+                ad. Dicat eruditi sadipscing mea ne, quot legere aliquam eam in.
+            </div>
         </div>
-        <div class="col-lg-4 enter process">
 
+        <div class="col-lg-5 enter process">
             <div class="enter" id="login">
-                <button type="submit" id="toRegistration" class="btn btn-primary">Registration</button>
+                <button type="button" id="toRegistration" class="btn btn-primary">Registration</button>
                 <form class="login identification ">
                     <div class="form-group ">
                         <label for="userUsername">Username</label>
@@ -47,11 +46,11 @@
                         <label for="userPassword1">Password</label>
                         <input type="password" class="form-control" id="userPassword1" placeholder="Password">
                     </div>
-                    <button type="submit" id="toMainFromLogin" class="btn btn-primary ">Log in</button>
+                    <button type="button" id="toMainFromLogin" class="btn btn-primary align-self-end">Log in</button>
                 </form>
             </div>
             <div class="enter" id="registration" hidden>
-                <button type="submit" id="toLogin" class="btn btn-primary">Login</button>
+                <button type="button" id="toLogin" class="btn btn-primary">Login</button>
                 <form class="registration identification">
                     <div class="form-group">
                         <label for="inputName">Name</label>
@@ -73,7 +72,7 @@
                         <label for="inputPassword1">Password</label>
                         <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="toMainFromRegistration">Registration</button>
+                    <button type="button" class="btn btn-primary" id="toMainFromRegistration">Registration</button>
                 </form>
             </div>
         </div>
@@ -100,7 +99,7 @@
                         </div>
                         <div class="form-group">
                             <label for="previewAccess">Interested in Preview Access?</label>
-                            <select class="form-control" name="previewAccess">
+                            <select class="form-control" id="previewAccess" name="previewAccess">
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
@@ -112,20 +111,22 @@
     </div><!-- /.modal -->
 </div>
 
+
 <div class="main window" >
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
+
             <div class="sidebar-header">
                 <h3>Bootstrap Sidebar</h3>
             </div>
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" >Deadlines</a>
+                    <a href="#homeSubmenu" id="toDeadlineTable">Deadlines</a>
                 </li>
                 <li>
-                    <a href="#">Profile</a>
+                    <a href="#" id="toProfileFromMain">Profile</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" >About</a>
@@ -135,6 +136,7 @@
 
         <!-- Page Content Holder -->
         <div id="content">
+            <!-- Sidebar Holder -->
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid" style="display: inline-flex;">
@@ -147,7 +149,7 @@
                     <div  style="align-self: center;margin-left: 30px;font-size: xx-large;">Deadline Keeper</div>
                 </div>
             </nav>
-            <div >
+            <div id="deadline_table" class="container window panel" hidden>
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
@@ -155,7 +157,7 @@
                                 <h2><b>Your deadlines</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                                <button  type="button" data-target="#create_deadline" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Deadline</span></button>
                                 <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                             </div>
                         </div>
@@ -255,99 +257,216 @@
                     </table>
                 </div>
             </div>
-            <!-- Edit Modal HTML -->
-            <div id="addEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add Employee</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <div class="container window panel" id="user_info" hidden>
+
+                <div class="panel-body inf-content align-content-center">
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/user-453533-fdadfd.png">
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Information</strong><br>
+                            <div class="table-responsive">
+                                <table class="table table-condensed table-responsive table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span class="fa fa-user  text-primary"></span>
+                                                Name
+                                            </strong>
+                                        </td>
+                                        <td class="text-primary">
+                                            Name
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span class="fa fa-cloud text-primary"></span>
+                                                Lastname
+                                            </strong>
+                                        </td>
+                                        <td class="text-primary">
+                                            LastName
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span class="fa fa-bookmark text-primary"></span>
+                                                Username
+                                            </strong>
+                                        </td>
+                                        <td class="text-primary">
+                                            login
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span class="fa fa-envelope text-primary" id="email_of"></span>
+                                                Email
+                                            </strong>
+                                        </td>
+                                        <td class="text-primary">
+                                            noreply@email.com
+                                        </td>
+                                        <td >
+                                            <button  data-toggle="modal" type="button" class="btn btn-light btn-rounded btn-sm my-0" data-target="#edit_email"><i class="fa fa-pencil-square"></i></button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span class="fa fa-calendar text-primary"></span>
+                                                created
+                                            </strong>
+                                        </td>
+                                        <td class="text-primary">
+                                            20 jan 2019
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                                <span class="fa fa-bell-o text-primary"></span>
+                                                Number of reminds
+                                            </strong>
+                                        </td>
+                                        <td class="text-primary">
+                                            2 times a day
+                                        </td>
+                                        <td >
+                                            <button type="button"  id="edit_reminds" class="btn btn-light btn-rounded btn-sm my-0"><i class="fa fa-pencil-square"></i></button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <textarea class="form-control" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-success" value="Add">
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            <!-- Edit Modal HTML -->
-            <div id="editEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Edit Employee</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <textarea class="form-control" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-info" value="Save">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- Delete Modal HTML -->
-            <div id="deleteEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Delete Employee</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Are you sure you want to delete these Records?</p>
-                                <p class="text-warning"><small>This action cannot be undone.</small></p>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-danger" value="Delete">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
 
+    </div>
+
+</div>
+<!-- Edit Mail HTML -->
+<div class="modal fade" id="edit_email" tabindex="-1" role="dialog" aria-labelledby="mailLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class=" modal-body">
+                <form>
+                    <div class="modal-header">
+                        <h5 id="mailLabel">Edit your mail</h5>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_email" class="col-form-label">New Email:</label>
+                        <input type="text" class="form-control" id="new_email" required>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Modal HTML -->
+<div id="editEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit deadline</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name of deadline</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Final date</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete deadline</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--IrkaButyrka add new Deadline-->
+<div class="modal fade " id="create_deadline" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog add_deadline" role="document" >
+        <div class="modal-content" >
+            <div class="modal-body">
+                <form >
+                    <div class="modal-header">
+                        <h5>Add new deadline</h5>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_deadline" class="col-form-label">Name of deadline:</label>
+                        <input type="text" class="form-control" id="new_deadline" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline-description" class="col-form-label">Description of deadline:</label>
+                        <textarea class="form-control" id="deadline-description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline-time" class="col-form-label">Final date:</label>
+                        <label>
+                            <input type="date" id="deadline-time" required class="date_of_deadline" >
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 </body>

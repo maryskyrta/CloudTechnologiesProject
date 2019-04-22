@@ -11,16 +11,6 @@
   border-radius: 5px;
   border: #6d7fcc 1px solid; }
 
-.enterRow {
-  position: absolute;
-  height: 99%; }
-
-.information {
-  position: relative;
-  padding: 5%;
-  text-align: left;
-  color: white; }
-
 .process {
   position: relative;
   text-align: right; }

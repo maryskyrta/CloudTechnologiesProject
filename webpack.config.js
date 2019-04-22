@@ -38,4 +38,6 @@ module.exports = {
             filename: "css/[name].css",
         }),
     ],
+
+    externals: ["fs"],
 };

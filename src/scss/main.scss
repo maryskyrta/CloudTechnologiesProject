@@ -7,10 +7,11 @@
 
 
 }
-#error_mail{
+#error_mail,#error_date,#error_des,#error_name{
   color:red;
 }
-#new_email{
+
+#new_email,#deadline-description,#deadline-time,#new_deadline{
   border-radius: 5px;
   border:#6d7fcc 1px solid;
 }

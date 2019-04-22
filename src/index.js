@@ -1,12 +1,17 @@
 import 'bootstrap';
 import './scss/main.scss';
 import $ from 'jquery';
-var AWS = require('aws-sdk');
-var express = require('express');
 
 
 window.jQuery = $;
 window.$ = $;
+var AWS = require('aws-sdk');
+var express = require('express');
+var nodemailer = require('nodemailer');
+
+var ddb = new AWS.DynamoDB();
+var ddbTable =  process.env.STARTUP_SIGNUP_TABLE;
+var snsTopic =  process.env.NEW_SIGNUP_TOPIC;
 
 console.log('Hello!');
 console.log(`The time is ${new Date()}`);

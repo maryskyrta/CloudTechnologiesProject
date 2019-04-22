@@ -63,17 +63,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     // Select/Deselect checkboxes
     var checkbox = $('table tbody input[type="checkbox"]');
-    $("#selectAll").click(function(){
-        if(this.checked){
-            checkbox.each(function(){
-                this.checked = true;
-            });
-        } else{
-            checkbox.each(function(){
-                this.checked = false;
-            });
-        }
-    });
+
     checkbox.click(function(){
         if(!this.checked){
             $("#selectAll").prop("checked", false);
@@ -82,37 +72,76 @@ $(document).ready(function(){
 
 
     $("#edit_mail_button").on('click',function(){
-        //reset the input email field
-        $('#new_email').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
-        $("#error_mail").attr("hidden","true");
+
+
+
         let mail=$("#current_email").text();
         $("#new_email").val(mail);
 
 
     });
+    function parseDateToInput(jsDate){
+
+        var jsDay = jsDate.getDate();
+        if (jsDay < 10){jsDay = '0' + jsDay;}
+        var jsMonth = jsDate.getMonth()+1;
+        if (jsMonth < 10){jsMonth = '0' + jsMonth;}
+        var jsYear = jsDate.getFullYear();
+        if (jsYear < 10){jsYear = '0' + jsYear;}
+        var jsHour = jsDate.getHours();
+        if (jsHour < 10){jsHour = '0' + jsHour;}
+        var jsMinute = jsDate.getMinutes();
+        if (jsMinute < 10){jsMinute = '0' + jsMinute;}
+
+        return jsYear + '-' + jsMonth + '-' + jsDay + 'T' + jsHour + ':' + jsMinute;
+    }
+
+    $(document).on('click',".edit",function () {
+        let id=$(this).attr('data-id');
+        console.log(id);
+       let el= $('#deadline-body').find(`tr[data-id='${id}']`);
+       el.addClass('selected');
+        $('#edit_deadline_time').val(parseDateToInput(new Date()));
+        $('#edit_deadline_name').val(el.find('.name').text());
+        $('#edit_deadline_des').val(el.find('.des').text());
+    });
 
     function resetTheEditWindow(){
         let content=$(`
-<div class="modal fade" id="edit_email" tabindex="-1" role="dialog" aria-labelledby="mailLabel" aria-hidden="true" >
-    <div class="modal-dialog " role="document">
-        <div class="modal-content">
-            <div class=" modal-body">
-                <form>
-                    <div class="modal-header">
-                        <h5 id="mailLabel">Edit your mail</h5>
-                    </div>
-                    <div class="form-group">
-                        <label for="new_email" class="col-form-label">New Email:</label>
-                        <input type="email" class="form-control " id="new_email" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="change_email_button"  class="btn btn-primary">OK</button>
-                    </div>
-                </form>
+ <div class="modal fade " id="create_deadline" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog add_deadline" role="document" >
+            <div class="modal-content" >
+                <div class="modal-body">
+                    <form >
+                        <div class="modal-header">
+                            <h5>Add new deadline</h5>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="new_deadline" class="col-form-label">Name of deadline:</label>
+                            <label for="new_deadline" class="col-form-label" id="error_name"  hidden><i class="fa fa-exclamation-triangle"></i>Empty field!</label>
+                            <input type="text" class="form-control" id="new_deadline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline-description" class="col-form-label">Description of deadline:</label>
+                            <label for="deadline-description" class="col-form-label" id="error_des"  hidden><i class="fa fa-exclamation-triangle"></i>Empty field!</label>
+                            <textarea class="form-control" id="deadline-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline-time" class="col-form-label">Final date:</label>
+                            <label for="deadline-time" class="col-form-label" id="error_date"  hidden><i class="fa fa-exclamation-triangle"></i>Wrong date!</label>
+                            <label>
+                                <input type="datetime-local" id="deadline-time" required class="date_of_deadline" >
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="add_deadline_button">OK</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 `);
 
@@ -125,12 +154,8 @@ $(document).ready(function(){
         $('#new_deadline').val("Name");
         $('#deadline-description').val("Description");
     });
-    // $('#create_deadline').on('show.bs.modal', function () {
-    //     $('#deadline-time').val(new Date().toJSON().slice(0,19));
-    //     $('#new_deadline').val("Name");
-    //     $('#deadline-description').val("Description");
-    //
-    // });
+
+
     $('#toRegistration').on('click', function () {
         $('#registration').removeAttr("hidden");
         $('#login').attr("hidden", "true");
@@ -159,7 +184,58 @@ $(document).ready(function(){
     });
 
 
+    function resetTheEditDeadlineWindow() {
+        let content=$(`
+<div id="edit_deadline" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit deadline</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name of deadline</label>
+                        <input type="text" id="edit_deadline_name" class="form-control" required>
+                    </div>
 
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="edit_deadline_des" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Final date</label>
+                        <input type="datetime-local" id="edit_deadline_time" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" id="save_edit_deadline_button" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+`);
+
+        $("#edit_deadline_container").html(content);
+    }
+
+    $(document).on("click", "#save_edit_deadline_button", function() {
+
+        let id=$('.selected').attr('data-id');
+        console.log(id);
+        let el= $('#deadline-body').find(`tr[data-id='${id}']`);
+        el.find('.time').text(  $('#edit_deadline_time').val().toLocaleString());
+       el.find('.name').text( $('#edit_deadline_name').val());
+        el.find('.des').text($('#edit_deadline_des').val());
+
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        resetTheEditDeadlineWindow();
+
+    });
     $('#toMainFromRegistration').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");
@@ -169,36 +245,29 @@ $(document).ready(function(){
     //change the email
     $(document).on("click", "#change_email_button", function() {
         let mail= $("#new_email").val();
-        //check if the mail is correct
-        // if(mail.length !==0 && isEmail(mail))
-        // {
+
             $("#current_email").text(mail);
             $('#edit_email').modal('hide');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
             resetTheEditWindow();
-        //}
 
     });
     $(document).on("click", "#add_deadline_button", function() {
 
-let time=$("#deadline-time").val().substring(0,10)+" "+$("#deadline-time").val().substring(11);
-        let content =$(` <tr>
-                            <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
+let time=new Date($("#deadline-time").val()).toLocaleString();
+let id=$("#deadline-body").children('tr').length;
+        let content =$(` <tr data-id=${id}>
+                            
+                            <td data-id="${id}" class="name" >${$("#new_deadline").val()}</td>
+                            <td data-id="${id}" class="des">${$("#deadline-description").val()}</td>
+                            <td data-id="${id}" class="time">${time}</td>
+                            <td class="btn-group">
+                                <button type="button" data-target="#edit_deadline" data-id=${id} class="edit btn btn-light" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
+                                <button type="button" data-target="#delete_deadline"  data-id=${id} class="delete btn btn-light" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
                             </td>
-                            <td>${$("#new_deadline").val()}</td>
-                            <td>${$("#deadline-description").val()}</td>
-                            <td>${time}</td>
-                            <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>`);
-        $("#deadline_list").append(content);
+                        </tr >`);
+        $("#deadline-body").append(content);
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         resetTheAddDeadlineWindow();
@@ -235,6 +304,36 @@ let time=$("#deadline-time").val().substring(0,10)+" "+$("#deadline-time").val()
             $("#error_name").attr("hidden","true");
             if($("#deadline-description").val().length!==0)
             $("#add_deadline_button").prop('disabled', false);
+        }
+    });
+    $(document).on('input', '#edit_deadline_name', function() {
+        let name= $(this).val();
+        if(name.length ===0 )
+        {
+            $('#edit_deadline_name').attr('style', "border-radius: 8px; border:#FF0000 1px solid;");
+            $("#error_edit_name").removeAttr("hidden");
+            $("#save_edit_deadline_button").prop('disabled', true);
+        }
+        else{
+            $('#edit_deadline_name').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
+            $("#error_edit_name").attr("hidden","true");
+            if($("#edit_deadline_des").val().length!==0)
+                $("#save_edit_deadline_button").prop('disabled', false);
+        }
+    });
+    $(document).on('input', '#edit_deadline_des', function() {
+        let name= $(this).val();
+        if(name.length ===0 )
+        {
+            $('#edit_deadline_des').attr('style', "border-radius: 8px; border:#FF0000 1px solid;");
+            $("#error_edit_des").removeAttr("hidden");
+            $("#save_edit_deadline_button").prop('disabled', true);
+        }
+        else{
+            $('#edit_deadline_des').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
+            $("#error_edit_des").attr("hidden","true");
+            if($("#edit_deadline_name").val().length!==0)
+                $("#save_edit_deadline_button").prop('disabled', false);
         }
     });
     $(document).on('input', '#deadline-description', function() {

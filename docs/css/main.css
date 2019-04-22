@@ -4,10 +4,24 @@
   min-height: 100%;
   background: #510d4b; }
 
-#error_mail, #error_date, #error_des, #error_name {
+#registration button {
+  background-color: #775bcd;
+  border-color: #775bcd; }
+
+#registration form {
+  border-radius: 10px; }
+
+#login button {
+  background-color: #775bcd;
+  border-color: #775bcd; }
+
+#login form {
+  border-radius: 10px; }
+
+#error_mail, #error_date, #error_des, #error_name, #error_edit_name, #error_edit_des {
   color: red; }
 
-#new_email, #deadline-description, #deadline-time, #new_deadline {
+#new_email, #deadline-description, #deadline-time, #new_deadline, #edit_deadline_name, #edit_deadline_time, #edit_deadline_des {
   border-radius: 5px;
   border: #6d7fcc 1px solid; }
 
@@ -296,7 +310,7 @@ table.table tr th, table.table tr td {
   vertical-align: middle; }
 
 table.table tr th:first-child {
-  width: 60px; }
+  width: 120px; }
 
 table.table tr th:last-child {
   width: 100px; }

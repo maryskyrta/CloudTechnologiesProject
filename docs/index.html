@@ -162,63 +162,23 @@
                     </div>
                     <table class="table table-striped table-hover">
                         <thead id="deadline_list">
-                        <tr>
-                            <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-                            </th>
+                        <tr >
+
                             <th>Task</th>
                             <th>Description</th>
                             <th>Deadline</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-                            </td>
-                            <td>Do a Cloud project</td>
-                            <td>It`s really really i`m not joking serious </td>
-                            <td>too difficult to say....</td>
-                            <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-                            </td>
-                            <td>Make friends</td>
-                            <td>I don`t have friends</td>
-                            <td>By my next birthday</td>
-                            <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-                            </td>
-                            <td>Watch GOT</td>
-                            <td>Winter is COMING!!!</td>
-                            <td>Right now!</td>
-                            <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <tbody id="deadline-body">
+                        <tr data-id="0" >
+
+                            <td data-id="0" class="name">Do a Cloud project</td>
+                            <td data-id="0" class="des">It`s really really i`m not joking serious </td>
+                            <td data-id="0" class="time">24-05-2019 23:23:23</td>
+                            <td class="btn-group">
+                                <button type="button" data-target="#edit_deadline"  data-id="0" class="edit btn btn-light " data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
+                                <button type="button" data-target="#delete_deadline"  data-id="0" class="delete btn btn-light " data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
                             </td>
                         </tr>
 
@@ -359,7 +319,8 @@
 </div>
 </div>
 <!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
+<div id="edit_deadline_container">
+<div id="edit_deadline" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -370,25 +331,28 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Name of deadline</label>
-                        <input type="text" class="form-control" required>
+                        <label class="col-form-label" id="error_edit_name"  hidden><i class="fa fa-exclamation-triangle"></i>Empty field!</label>
+                        <input type="text" id="edit_deadline_name" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" required></textarea>
+                        <label for="new_deadline" class="col-form-label" id="error_edit_des"  hidden><i class="fa fa-exclamation-triangle"></i>Empty field!</label>
+                        <textarea class="form-control" id="edit_deadline_des" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Final date</label>
-                        <input type="datetime-local" class="form-control" required>
+                        <input type="datetime-local" id="edit_deadline_time" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-info" value="Save">
+                    <input type="submit" class="btn btn-info" id="save_edit_deadline_button" value="Save">
                 </div>
             </form>
         </div>
     </div>
+</div>
 </div>
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">

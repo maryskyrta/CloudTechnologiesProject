@@ -115,7 +115,7 @@
     <div class="wrapper ">
         <nav id="sidebar" >
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <h3>Menu</h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -309,11 +309,13 @@
                                                 Email
                                             </strong>
                                         </td>
-                                        <td class="text-primary">
-                                            noreply@email.com
+                                        <td class="text-primary" >
+                                            <span id="current_email">
+                                                noreply@email.com
+                                            </span>
                                         </td>
                                         <td >
-                                            <button  data-toggle="modal" type="button" class="btn btn-light btn-rounded btn-sm my-0" data-target="#edit_email"><i class="fa fa-pencil-square"></i></button>
+                                            <button  data-toggle="modal" type="button" id="edit_mail_button" class="btn btn-light btn-rounded btn-sm my-0" data-target="#edit_email"><i class="fa fa-pencil-square"></i></button>
 
                                         </td>
                                     </tr>
@@ -358,27 +360,30 @@
 
 </div>
 <!-- Edit Mail HTML -->
-<div class="modal fade" id="edit_email" tabindex="-1" role="dialog" aria-labelledby="mailLabel" aria-hidden="true">
+<div id="change_email_container">
+<div class="modal fade" id="edit_email" tabindex="-1" role="dialog" aria-labelledby="mailLabel" aria-hidden="true" >
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class=" modal-body">
                 <form>
                     <div class="modal-header">
-                        <h5 id="mailLabel">Edit your mail</h5>
+                        <h5 id="mailLabel">Enter your new mail</h5>
                     </div>
                     <div class="form-group">
-                        <label for="new_email" class="col-form-label">New Email:</label>
-                        <input type="text" class="form-control" id="new_email" required>
+                        <!--Error label from Irka-->
+                        <label for="new_email" class="col-form-label" id="error_mail" hidden ><i class="fa fa-exclamation-triangle"></i>Wrong format!</label>
+                        <input type="email" class="form-control " id="new_email" required>
+
                     </div>
                     <div class="modal-footer">
-
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">OK</button>
+                        <button type="button" id="change_email_button"  class="btn btn-primary">OK</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Edit Modal HTML -->
 <div id="editEmployeeModal" class="modal fade">
@@ -457,7 +462,6 @@
                         </label>
                     </div>
                     <div class="modal-footer">
-
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">OK</button>
                     </div>

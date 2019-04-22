@@ -4,6 +4,13 @@
   min-height: 100%;
   background: #510d4b; }
 
+#error_mail {
+  color: red; }
+
+#new_email {
+  border-radius: 5px;
+  border: #6d7fcc 1px solid; }
+
 .process {
   position: relative;
   text-align: right; }

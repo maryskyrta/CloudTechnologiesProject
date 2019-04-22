@@ -101,10 +101,12 @@ $(document).ready(function(){
         $('#deadline_table').removeAttr("hidden");
 
     });
- $('#toDeadlineTable').on('click',function(){
-     $('.panel').attr("hidden", "true");
-     $('#deadline_table').removeAttr("hidden");
-});
+
+    $('#toDeadlineTable').on('click',function(){
+         $('.panel').attr("hidden", "true");
+         $('#deadline_table').removeAttr("hidden");
+    });
+
     $('#toMainFromRegistration').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");

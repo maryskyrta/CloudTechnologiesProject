@@ -160,7 +160,7 @@
                         </div>
                     </div>
                     <table class="table table-striped table-hover">
-                        <thead>
+                        <thead id="deadline_list">
                         <tr>
                             <th>
 							<span class="custom-checkbox">
@@ -182,9 +182,9 @@
 								<label for="checkbox1"></label>
 							</span>
                             </td>
-                            <td>Thomas Hardy</td>
-                            <td>thomashardy@mail.com</td>
-                            <td>89 Chiaroscuro Rd, Portland, USA</td>
+                            <td>Do a Cloud project</td>
+                            <td>It`s really really i`m not joking serious </td>
+                            <td>too difficult to say....</td>
                             <td>
                                 <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -197,9 +197,9 @@
 								<label for="checkbox2"></label>
 							</span>
                             </td>
-                            <td>Dominique Perrier</td>
-                            <td>dominiqueperrier@mail.com</td>
-                            <td>Obere Str. 57, Berlin, Germany</td>
+                            <td>Make friends</td>
+                            <td>I don`t have friends</td>
+                            <td>By my next birthday</td>
                             <td>
                                 <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -212,44 +212,16 @@
 								<label for="checkbox3"></label>
 							</span>
                             </td>
-                            <td>Maria Anders</td>
-                            <td>mariaanders@mail.com</td>
-                            <td>25, rue Lauriston, Paris, France</td>
+                            <td>Watch GOT</td>
+                            <td>Winter is COMING!!!</td>
+                            <td>Right now!</td>
                             <td>
                                 <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-                            </td>
-                            <td>Fran Wilson</td>
-                            <td>franwilson@mail.com</td>
-                            <td>C/ Araquil, 67, Madrid, Spain</td>
-                            <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-                            </td>
-                            <td>Martin Blank</td>
-                            <td>martinblank@mail.com</td>
-                            <td>Via Monte Bianco 34, Turin, Italy</td>
-                            <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -406,7 +378,7 @@
                     </div>
                     <div class="form-group">
                         <label>Final date</label>
-                        <input type="date" class="form-control" required>
+                        <input type="datetime-local" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -439,33 +411,39 @@
     </div>
 </div>
 <!--IrkaButyrka add new Deadline-->
-<div class="modal fade " id="create_deadline" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog add_deadline" role="document" >
-        <div class="modal-content" >
-            <div class="modal-body">
-                <form >
-                    <div class="modal-header">
-                        <h5>Add new deadline</h5>
-                    </div>
-                    <div class="form-group">
-                        <label for="new_deadline" class="col-form-label">Name of deadline:</label>
-                        <input type="text" class="form-control" id="new_deadline" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="deadline-description" class="col-form-label">Description of deadline:</label>
-                        <textarea class="form-control" id="deadline-description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="deadline-time" class="col-form-label">Final date:</label>
-                        <label>
-                            <input type="date" id="deadline-time" required class="date_of_deadline" >
-                        </label>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">OK</button>
-                    </div>
-                </form>
+<div id="add_deadline_container">
+    <div class="modal fade " id="create_deadline" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog add_deadline" role="document" >
+            <div class="modal-content" >
+                <div class="modal-body">
+                    <form >
+                        <div class="modal-header">
+                            <h5>Add new deadline</h5>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="new_deadline" class="col-form-label">Name of deadline:</label>
+                            <label for="new_deadline" class="col-form-label" id="error_name"  hidden><i class="fa fa-exclamation-triangle"></i>Empty field!</label>
+                            <input type="text" class="form-control" id="new_deadline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline-description" class="col-form-label">Description of deadline:</label>
+                            <label for="deadline-description" class="col-form-label" id="error_des"  hidden><i class="fa fa-exclamation-triangle"></i>Empty field!</label>
+                            <textarea class="form-control" id="deadline-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline-time" class="col-form-label">Final date:</label>
+                            <label for="deadline-time" class="col-form-label" id="error_date"  hidden><i class="fa fa-exclamation-triangle"></i>Wrong date!</label>
+                            <label>
+                                <input type="datetime-local" id="deadline-time" required class="date_of_deadline" >
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="add_deadline_button">OK</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

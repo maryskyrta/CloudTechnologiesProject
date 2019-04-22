@@ -50,6 +50,32 @@ $(document).ready(function(){
 
         $("#add_deadline_container").html(content);
     }
+    function resetTheDeleteDeadlineWindow() {
+        let content=$(`
+<div id="delete_deadline" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete deadline</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="button" id="delete_deadline_button" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div></div>
+`);
+
+        $("#delete_deadline_container").html(content);
+    }
     // Email validation
     function isEmail(email) {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -105,7 +131,13 @@ $(document).ready(function(){
         $('#edit_deadline_name').val(el.find('.name').text());
         $('#edit_deadline_des').val(el.find('.des').text());
     });
+    $(document).on('click',".delete",function () {
+        let id=$(this).attr('data-id');
+        console.log(id);
+        let el= $('#deadline-body').find(`tr[data-id='${id}']`);
+        el.addClass('selected');
 
+    });
     function resetTheEditWindow(){
         let content=$(`
  <div class="modal fade " id="create_deadline" tabindex="-1" role="dialog" aria-hidden="true">
@@ -230,12 +262,23 @@ $(document).ready(function(){
         el.find('.time').text(  $('#edit_deadline_time').val().toLocaleString());
        el.find('.name').text( $('#edit_deadline_name').val());
         el.find('.des').text($('#edit_deadline_des').val());
-
+        el.removeClass('selected');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         resetTheEditDeadlineWindow();
 
     });
+
+    $(document).on("click", "#delete_deadline_button", function() {
+
+        let id=$('.selected').attr('data-id');
+        console.log(id);
+        $('#deadline-body').children(`tr[data-id='${id}']`).remove();
+          $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+         resetTheDeleteDeadlineWindow();
+    });
+
     $('#toMainFromRegistration').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");

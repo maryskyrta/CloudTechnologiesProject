@@ -157,7 +157,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <button  type="button" data-target="#create_deadline" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Deadline</span></button>
-                                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+                              
                             </div>
                         </div>
                     </div>
@@ -356,7 +356,8 @@
 </div>
 </div>
 <!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
+<div id="delete_deadline_container">
+<div id="delete_deadline" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -370,12 +371,12 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
+                    <input type="button" id="delete_deadline_button" class="btn btn-danger" value="Delete">
                 </div>
             </form>
         </div>
     </div>
-</div>
+</div></div>
 <!--IrkaButyrka add new Deadline-->
 <div id="add_deadline_container">
     <div class="modal fade " id="create_deadline" tabindex="-1" role="dialog" aria-hidden="true">

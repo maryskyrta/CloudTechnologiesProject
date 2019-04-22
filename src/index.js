@@ -1,7 +1,7 @@
 import 'bootstrap';
 import './scss/main.scss';
 import $ from 'jquery';
-var nodemailer = require('nodemailer');
+// var nodemailer = require('nodemailer');
 window.jQuery = $;
 window.$ = $;
 

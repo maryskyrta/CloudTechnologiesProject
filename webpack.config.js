@@ -40,4 +40,10 @@ module.exports = {
     ],
 
     externals: ["fs"],
+
+    node: {
+        net: 'empty',
+        tls: 'empty',
+        dns: 'empty'
+    },
 };

@@ -5,6 +5,7 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
+var express = require('express');
 console.log('Hello!');
 console.log(`The time is ${new Date()}`);
 

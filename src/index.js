@@ -33,7 +33,7 @@ $(document).ready(function(){
                     <div class="form-group">
                         <label for="deadline-time" class="col-form-label">Final date:</label>
                         <label>
-                            <input type="date" id="deadline-time" required class="date_of_deadline" >
+                            <input type="datetime-local" id="deadline-time" required class="date_of_deadline" >
                         </label>
                     </div>
                     <div class="modal-footer">
@@ -119,12 +119,17 @@ $(document).ready(function(){
 
     }
 
-    $('#create_deadline').on('show.bs.modal', function () {
+    $(document).on('show.bs.modal','#create_deadline',function () {
         $('#deadline-time').val(new Date().toJSON().slice(0,19));
         $('#new_deadline').val("Name");
         $('#deadline-description').val("Description");
-
     });
+    // $('#create_deadline').on('show.bs.modal', function () {
+    //     $('#deadline-time').val(new Date().toJSON().slice(0,19));
+    //     $('#new_deadline').val("Name");
+    //     $('#deadline-description').val("Description");
+    //
+    // });
     $('#toRegistration').on('click', function () {
         $('#registration').removeAttr("hidden");
         $('#login').attr("hidden", "true");
@@ -157,6 +162,7 @@ $(document).ready(function(){
     $('#toMainFromRegistration').on('click', function () {
         $('.enter').attr("hidden", "true");
         $('.main').removeAttr("hidden");
+        $('#deadline_table').removeAttr("hidden");
     });
 
     //change the email

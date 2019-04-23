@@ -100,7 +100,8 @@ $(document).ready(function(){
     $("#edit_mail_button").on('click',function(){
 
 
-
+            $("#error_mail").attr("hidden",true);
+            $('#new_email').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
         let mail=$("#current_email").text();
         $("#new_email").val(mail);
 
@@ -182,9 +183,21 @@ $(document).ready(function(){
     }
 
     $(document).on('show.bs.modal','#create_deadline',function () {
+        $("#error_name").attr("hidden",true);
+        $("#error_des").attr("hidden",true);
+        $('#new_deadline').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
+        $('#deadline-description').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
         $('#deadline-time').val(new Date().toJSON().slice(0,19));
         $('#new_deadline').val("Name");
         $('#deadline-description').val("Description");
+        $("#add_deadline_button").prop('disabled', false);
+    });
+    $(document).on('show.bs.modal','#edit_deadline',function () {
+        $("#error_edit_name").attr("hidden",true);
+        $("#error_edit_des").attr("hidden",true);
+        $('#edit_deadline_name').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
+        $('#edit_deadline_des').attr('style', "border-radius: 5px; border:#6d7fcc 1px solid;");
+        $("#save_edit_deadline_button").prop('disabled', false);
     });
 
 
@@ -259,7 +272,7 @@ $(document).ready(function(){
         let id=$('.selected').attr('data-id');
         console.log(id);
         let el= $('#deadline-body').find(`tr[data-id='${id}']`);
-        el.find('.time').text(  $('#edit_deadline_time').val().toLocaleString());
+        el.find('.time').text(new Date($('#edit_deadline_time').val()).toLocaleString());
        el.find('.name').text( $('#edit_deadline_name').val());
         el.find('.des').text($('#edit_deadline_des').val());
         el.removeClass('selected');
@@ -288,7 +301,7 @@ $(document).ready(function(){
     //change the email
     $(document).on("click", "#change_email_button", function() {
         let mail= $("#new_email").val();
-
+        $("#edit_mail_button").prop('disabled', false);
             $("#current_email").text(mail);
             $('#edit_email').modal('hide');
             $('body').removeClass('modal-open');
